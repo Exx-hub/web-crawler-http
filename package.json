@@ -1,0 +1,24 @@
+{
+  "name": "web-crawler-http",
+  "version": "1.0.0",
+  "description": "Http project",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exx-hub/web-crawler-http.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Exx-hub/web-crawler-http/issues"
+  },
+  "homepage": "https://github.com/Exx-hub/web-crawler-http#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
