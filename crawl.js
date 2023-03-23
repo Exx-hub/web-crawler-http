@@ -1,7 +1,22 @@
+const { JSDOM } = require("jsdom");
+
+function getURLsFromHTML(htmlBody, baseUrl) {
+  const urls = [];
+  const dom = new JSDOM(htmlBody);
+  const linkElements = dom.window.document.querySelectorAll("a");
+  for (const element of linkElements) {
+    if (element.href.startsWith("/")) {
+      urls.push(`${baseUrl}${element.href}`);
+    } else if (element.href.startsWith("http")) {
+      urls.push(element.href);
+    }
+  }
+
+  return urls;
+}
+
 function normalizeURL(urlString) {
   const urlObj = new URL(urlString);
-
-  console.log(urlObj);
 
   let hostPath = `${urlObj.hostname}${urlObj.pathname}`;
 
@@ -12,6 +27,4 @@ function normalizeURL(urlString) {
   return hostPath;
 }
 
-console.log(normalizeURL("https://BLOG.BoOt.dev/path"));
-
-module.exports = { normalizeURL };
+module.exports = { normalizeURL, getURLsFromHTML };
